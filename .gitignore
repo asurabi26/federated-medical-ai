@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.env
+checkpoints/*.pt
+*.png
+.pytest_cache/
+faiss_index/
+*.egg-info/
+build/
+*.so
+.ipynb_checkpoints/

@@ -1,0 +1,15 @@
+torch==2.3.0
+torchvision==0.18.0
+numpy==1.26.3
+faiss-cpu==1.8.0
+sentence-transformers==2.7.0
+langchain==0.2.1
+langchain-openai==0.1.7
+langgraph==0.0.60
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+pydantic==2.5.3
+pillow==10.2.0
+pytest==7.4.4
+httpx==0.26.0
+matplotlib==3.8.2

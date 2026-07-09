@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          pip install torch torchvision --index-url https://download.pytorch.org/whl/cpu
+          pip install -r requirements.txt
+
+      - name: Run federated learning core tests (no GPU / no network needed)
+        run: pytest tests/test_federated.py -v
+
+      - name: Run RAG tests (best effort - needs model download)
+        run: pytest tests/test_rag.py -v
+        continue-on-error: true
+
+      - name: Compile-check CUDA kernel source (syntax only, no GPU in CI)
+        run: |
+          echo "CUDA compilation requires a GPU runtime (see notebooks/cuda_quantization_colab.ipynb)."
+          echo "CI validates Python-side code only; the .cu file is reviewed, not compiled, here."
