@@ -1,0 +1,14 @@
+# torch and torchvision are installed separately in the Dockerfile as CPU-only wheels -
+# do NOT add them here, or pip will pull the full CUDA-enabled versions and bring back
+# the exact bundle-size problem this file exists to avoid.
+
+faiss-cpu==1.8.0
+sentence-transformers==2.7.0
+langchain==0.2.1
+langchain-openai==0.1.7
+langgraph==0.0.60
+fastapi==0.109.0
+uvicorn[standard]==0.27.0
+pydantic==2.5.3
+pillow==10.2.0
+numpy<2

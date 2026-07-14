@@ -1,0 +1,14 @@
+notebooks/
+cuda_kernels/*.cu
+cuda_kernels/*.o
+cuda_kernels/*.so
+tests/
+.git/
+.github/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.png
+*.zip
+.ipynb_checkpoints/
+mlruns/
